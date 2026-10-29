@@ -31,4 +31,9 @@ class CalculadoraDescontoTDDTest {
     void exatos500NaoTemDesconto() {
         assertEquals(500.00, calc.calcularValorFinal(500), DELTA);
     }
+
+    @Test
+    void valorAcimaDe1000Tem20PorCentoDeDesconto() {
+        assertEquals(1200.00, calc.calcularValorFinal(1500), DELTA);
+    }
 }
