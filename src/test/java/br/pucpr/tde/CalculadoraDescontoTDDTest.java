@@ -9,41 +9,46 @@ class CalculadoraDescontoTDDTest {
 
     @Test
     void valorZeroLancaExcecao() {
-        assertThrows(IllegalArgumentException.class, () -> calc.calcularValorFinal(0));
+        assertThrows(IllegalArgumentException.class, () -> calc.calcularValorFinal(0, false));
     }
 
     @Test
     void valorNegativoLancaExcecao() {
-        assertThrows(IllegalArgumentException.class, () -> calc.calcularValorFinal(-10));
+        assertThrows(IllegalArgumentException.class, () -> calc.calcularValorFinal(-10, false));
     }
 
     @Test
     void valorAbaixoDe500NaoTemDesconto() {
-        assertEquals(400.00, calc.calcularValorFinal(400), DELTA);
+        assertEquals(400.00, calc.calcularValorFinal(400, false), DELTA);
     }
 
     @Test
     void valorAcimaDe500Tem10PorCentoDeDesconto() {
-        assertEquals(540.00, calc.calcularValorFinal(600), DELTA);
+        assertEquals(540.00, calc.calcularValorFinal(600, false), DELTA);
     }
 
     @Test
     void exatos500NaoTemDesconto() {
-        assertEquals(500.00, calc.calcularValorFinal(500), DELTA);
+        assertEquals(500.00, calc.calcularValorFinal(500, false), DELTA);
     }
 
     @Test
     void valorAcimaDe1000Tem20PorCentoDeDesconto() {
-        assertEquals(1200.00, calc.calcularValorFinal(1500), DELTA);
+        assertEquals(1200.00, calc.calcularValorFinal(1500, false), DELTA);
     }
 
     @Test
     void exatos1000Tem10PorCentoDeDesconto() {
-        assertEquals(900.00, calc.calcularValorFinal(1000), DELTA);
+        assertEquals(900.00, calc.calcularValorFinal(1000, false), DELTA);
     }
 
     @Test
     void vipTem5PorCentoSobreValorJaDescontado() {
         assertEquals(513.00, calc.calcularValorFinal(600, true), DELTA);
+    }
+
+    @Test
+    void vipSemFaixaDeDescontoTem5PorCento() {
+        assertEquals(380.00, calc.calcularValorFinal(400, true), DELTA);
     }
 }
