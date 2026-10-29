@@ -50,7 +50,7 @@ calculadora-desconto/
 
 ## Tecnologias
 
-- Java 17 ou superior
+- Java 24
 - Maven
 - JUnit 5 (`junit-jupiter` 5.10.2) e `maven-surefire-plugin` 3.2.5
 - IntelliJ IDEA
