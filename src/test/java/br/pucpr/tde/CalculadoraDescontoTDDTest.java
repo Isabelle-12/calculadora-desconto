@@ -13,12 +13,17 @@ class CalculadoraDescontoTDDTest {
     }
 
     @Test
+    void valorNegativoLancaExcecao() {
+        assertThrows(IllegalArgumentException.class, () -> calc.calcularValorFinal(-10));
+    }
+
+    @Test
     void valorAbaixoDe500NaoTemDesconto() {
         assertEquals(400.00, calc.calcularValorFinal(400), DELTA);
     }
 
     @Test
-    void valorNegativoLancaExcecao() {
-        assertThrows(IllegalArgumentException.class, () -> calc.calcularValorFinal(-10));
+    void valorAcimaDe500Tem10PorCentoDeDesconto() {
+        assertEquals(540.00, calc.calcularValorFinal(600), DELTA);
     }
 }
