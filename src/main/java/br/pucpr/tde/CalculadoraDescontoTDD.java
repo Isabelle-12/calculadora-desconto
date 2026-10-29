@@ -9,6 +9,9 @@ public class CalculadoraDescontoTDD {
         if (valorTotal <= 0) {
             throw new IllegalArgumentException("O valor total deve ser maior que zero.");
         }
+        if (valorTotal > 1000.00) {
+            return valorTotal * 0.80;
+        }
         if (valorTotal > LIMITE_DESCONTO_10) {
             return valorTotal * FATOR_DESCONTO_10;
         }
