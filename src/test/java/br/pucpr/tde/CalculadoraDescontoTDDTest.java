@@ -51,4 +51,9 @@ class CalculadoraDescontoTDDTest {
     void vipSemFaixaDeDescontoTem5PorCento() {
         assertEquals(380.00, calc.calcularValorFinal(400, true), DELTA);
     }
+
+    @Test
+    void valorFinalAbaixoDe100CobraFrete() {
+        assertEquals(95.00, calc.calcularValorFinal(80, false), DELTA);
+    }
 }
