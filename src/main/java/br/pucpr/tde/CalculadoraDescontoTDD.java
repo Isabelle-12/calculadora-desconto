@@ -25,6 +25,10 @@ public class CalculadoraDescontoTDD {
             valor = valor * FATOR_DESCONTO_VIP;
         }
 
+        if (valor < 100.00) {
+            valor = valor + 15.00;
+        }
+
         return valor;
     }
 }
