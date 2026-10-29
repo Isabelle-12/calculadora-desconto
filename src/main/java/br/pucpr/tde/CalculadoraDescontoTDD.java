@@ -7,6 +7,8 @@ public class CalculadoraDescontoTDD {
     private static final double LIMITE_DESCONTO_20 = 1000.00;
     private static final double FATOR_DESCONTO_20 = 0.80;
     private static final double FATOR_DESCONTO_VIP = 0.95;
+    private static final double LIMITE_FRETE = 100.00;
+    private static final double VALOR_FRETE = 15.00;
 
     public double calcularValorFinal(double valorTotal, boolean vip) {
         if (valorTotal <= 0) {
@@ -25,8 +27,8 @@ public class CalculadoraDescontoTDD {
             valor = valor * FATOR_DESCONTO_VIP;
         }
 
-        if (valor < 100.00) {
-            valor = valor + 15.00;
+        if (valor < LIMITE_FRETE) {
+            valor = valor + VALOR_FRETE;
         }
 
         return valor;

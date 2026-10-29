@@ -56,4 +56,15 @@ class CalculadoraDescontoTDDTest {
     void valorFinalAbaixoDe100CobraFrete() {
         assertEquals(95.00, calc.calcularValorFinal(80, false), DELTA);
     }
+
+    @Test
+    void exatos100NaoCobramFrete() {
+        assertEquals(100.00, calc.calcularValorFinal(100, false), DELTA);
+    }
+
+    @Test
+    void vipQueFicaAbaixoDe100CobraFrete() {
+        // 105 * 0,95 = 99,75 -> abaixo de 100 -> + 15 = 114,75
+        assertEquals(114.75, calc.calcularValorFinal(105, true), DELTA);
+    }
 }
