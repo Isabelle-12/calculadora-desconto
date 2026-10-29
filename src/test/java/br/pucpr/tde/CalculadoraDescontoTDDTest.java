@@ -1,7 +1,5 @@
 package br.pucpr.tde;
-
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculadoraDescontoTDDTest {
@@ -17,5 +15,10 @@ class CalculadoraDescontoTDDTest {
     @Test
     void valorAbaixoDe500NaoTemDesconto() {
         assertEquals(400.00, calc.calcularValorFinal(400), DELTA);
+    }
+
+    @Test
+    void valorNegativoLancaExcecao() {
+        assertThrows(IllegalArgumentException.class, () -> calc.calcularValorFinal(-10));
     }
 }
