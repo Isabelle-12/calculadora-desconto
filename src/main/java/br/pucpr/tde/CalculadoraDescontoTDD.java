@@ -21,4 +21,8 @@ public class CalculadoraDescontoTDD {
 
         return valor;
     }
+
+    public double calcularValorFinal(double valorTotal, boolean vip) {
+        return 0;
+    }
 }
