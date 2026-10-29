@@ -23,6 +23,10 @@ public class CalculadoraDescontoTDD {
     }
 
     public double calcularValorFinal(double valorTotal, boolean vip) {
-        return 0;
+        double valor = calcularValorFinal(valorTotal);
+        if (vip) {
+            valor = valor * 0.95;
+        }
+        return valor;
     }
 }
