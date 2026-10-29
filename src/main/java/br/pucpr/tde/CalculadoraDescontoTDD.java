@@ -6,6 +6,6 @@ public class CalculadoraDescontoTDD {
         if (valorTotal <= 0) {
             throw new IllegalArgumentException("O valor total deve ser maior que zero.");
         }
-        return 0;
+        return valorTotal;
     }
 }
